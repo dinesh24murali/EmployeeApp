@@ -1,0 +1,33 @@
+<div class="container">
+    <div style="margin-top:5%;">
+        <md-card>
+            <md-grid-list cols="4" rowHeight="4:1">
+                <md-grid-tile [colspan]="4">
+                    <h2 align="center">Update Excel</h2>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="4">
+                    <md-input-container class="full-width">
+                        <input mdInput placeholder="Select File" disabled="true" [(ngModel)]="fileName.name">
+                    </md-input-container>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="2">
+                    <input type="file" class="hideFileInput" id="file" #selectFile (change)="selectExcel($event)" />
+                    <button md-raised-button [disabled]="uploading" (click)="openFile()">Choose a file</button>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="2">
+                    <button (click)="upload()" [disabled]="uploadDisabled" md-raised-button color="primary">Upload</button>
+                </md-grid-tile>
+
+                <md-grid-tile [colspan]="4">
+                    <p>
+                        <b>Note:</b> The excel or CVS file should have their column names exactly 'Name','Designation','Sex','Salary','Date
+                        of birth' format</p>
+                </md-grid-tile>
+            </md-grid-list>
+        </md-card>
+        <div class="progrssSpinnerAlign">
+            <md-progress-spinner *ngIf="uploading" color="primary" mode="indeterminate" [value]="value">
+            </md-progress-spinner>
+        </div>
+    </div>
+</div>

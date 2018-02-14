@@ -1,0 +1,64 @@
+<div class="container">
+    <div style="margin-top:5%;">
+        <md-card>
+            <md-grid-list cols="4" rowHeight="4:1">
+                <md-grid-tile [colspan]="4">
+                    <h2 align="center">Update Employee</h2>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="2">
+                    <md-input-container class="full-width">
+                        <input mdInput placeholder="Employee Name" [formControl]="empName">
+                        <md-error *ngIf="empName.hasError('required')">
+                            Employee Name is
+                            <strong>required</strong>
+                        </md-error>
+                    </md-input-container>
+
+                </md-grid-tile>
+
+                <md-grid-tile [colspan]="2">
+                    <md-input-container class="full-width">
+                        <input mdInput placeholder="Designation" [formControl]="desig">
+                        <md-error *ngIf="desig.hasError('required')">
+                            Designation is
+                            <strong>required</strong>
+                        </md-error>
+                    </md-input-container>
+
+                </md-grid-tile>
+
+                <md-grid-tile [colspan]="2">
+                    <div style="float:left;">
+                        <md-slide-toggle (change)="sex = sex == 'M' ? 'F' : 'M'">{{sex == "M" ? "Male" : "Female"}}</md-slide-toggle>
+                    </div>
+                </md-grid-tile>
+
+                <md-grid-tile [colspan]="2">
+                    <md-input-container class="full-width">
+                        <input mdInput placeholder="Salary" [formControl]="salary">
+                        <md-error *ngIf="salary.hasError('required')">
+                            Salary is
+                            <strong>required</strong>
+                        </md-error>
+                    </md-input-container>
+                </md-grid-tile>
+
+                <md-grid-tile [colspan]="2">
+                    <md-input-container>
+                        <input mdInput [mdDatepicker]="picker" placeholder="Date of Birth" [formControl]="dob">
+                        <md-error *ngIf="dob.hasError('required')">
+                            Date of Birth is
+                            <strong>required</strong>
+                        </md-error>
+                        <button mdSuffix [mdDatepickerToggle]="picker"></button>
+                    </md-input-container>
+                    <md-datepicker #picker></md-datepicker>
+                </md-grid-tile>
+
+                <md-grid-tile [colspan]="2">
+                    <button (click)="updateRecord()" md-raised-button color="primary">Update</button>
+                </md-grid-tile>
+            </md-grid-list>
+        </md-card>
+    </div>
+</div>

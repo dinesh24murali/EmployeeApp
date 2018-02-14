@@ -1,0 +1,45 @@
+<md-sidenav-container>
+    <div class="container">
+
+        <h2 align="center">Employee List</h2>
+
+        <ngx-datatable class="material" [rows]="employeeList" [columnMode]="'force'" [sortType]="'single'" [headerHeight]="50" [footerHeight]="50"
+            [rowHeight]="40" [limit]="10" [loadingIndicator]="loadingIndicator">
+            <ngx-datatable-column prop="name" name="Name"></ngx-datatable-column>
+            <ngx-datatable-column prop="desig" name="Designation"></ngx-datatable-column>
+            <ngx-datatable-column prop="sex" name="Sex">
+                    <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                            {{ value == "M" ? "Male" : "Female"}}
+                        </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column prop="salary" name="Salary"></ngx-datatable-column>
+            <ngx-datatable-column prop="dob" name="Date of Birth">
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    {{ value | date }}
+                </ng-template>                
+            </ngx-datatable-column>
+            <ngx-datatable-column [width]="50" [sortable]="false" [canAutoResize]="false" [draggable]="false" [resizeable]="false">
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    <a style="cursor:pointer;" mdTooltip="Delete Employee" (click)="deleteRecord(row)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column [width]="50" [sortable]="false" [canAutoResize]="false" [draggable]="false" [resizeable]="false">
+                <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                    <a routerLink="." mdTooltip="Edit Employee" (click)="editRecord(row)">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
+    <md-sidenav align="end" mode="push" #sidenav class="viewRecord">
+        <div style="padding-bottom:5px;">
+            <button style="float:right" md-icon-button color="warn" (click)="sidenav.close()">
+                <i class="material-icons">close</i>
+            </button>
+            <h3>View Employee</h3>
+        </div>
+    </md-sidenav>
+</md-sidenav-container>

@@ -1,0 +1,29 @@
+<div (mouseleave)="nav_out()">
+  <div #sideNavBar class="w3-sidebar w3-bar-block w3-light-grey w3-card-2 w3-animate-left top-correction" style="display:none"
+    id="SideNavbar">
+    <a routerLink="/view" class="w3-bar-item w3-button">View Employees</a>
+    <a routerLink="/upload" class="w3-bar-item w3-button">Upload Excel</a>
+    <a routerLink="/convert" class="w3-bar-item w3-button">Convert File</a>
+    <!-- <a routerLink="/sample" class="w3-bar-item w3-button">Sample Table</a> -->
+  </div>
+</div>
+
+<div class="w3-main" id="main">
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div>
+        <ul class="nav navbar-nav">
+          <li>
+            <a style="cursor:pointer;">
+              <span (click)="nav_toggle()" class="glyphicon glyphicon-menu-hamburger"></span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <router-outlet></router-outlet>
+</div>

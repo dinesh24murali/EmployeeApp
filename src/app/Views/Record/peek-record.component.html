@@ -1,0 +1,61 @@
+    
+    <md-card>
+        <div class="view-container">
+
+            <md-grid-list cols="5" rowHeight="5:1">
+                <md-grid-tile [colspan]="1">
+                    <label>Name:</label>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="1">
+                    <md-input-container class="full-width">
+                        <input mdInput disabled [value]="name" [title]="name">
+                    </md-input-container>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="1">
+                    <label>Year:</label>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="1">
+                    <md-input-container class="full-width">
+                        <input mdInput disabled [value]="year" [title]="year">
+                    </md-input-container>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="1">
+                    <button (click)="editRecord(undefined)" md-raised-button>
+                        <i class="material-icons">mode_edit</i>
+                    </button>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="1">
+                    <label>Producer</label>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="1">
+                    <md-input-container class="full-width">
+                        <input mdInput disabled [value]="producer.name" [title]="producer.name">
+                    </md-input-container>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="1">
+                    <label>Plot</label>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="1">
+                    <md-input-container class="full-width">
+                        <input mdInput disabled [value]="plot" [title]="plot">
+                    </md-input-container>
+                </md-grid-tile>
+                <md-grid-tile [colspan]="1">
+                    <button (click)="deleteRecord(undefined)" md-raised-button color="warn">
+                        <i class="material-icons">delete</i>
+                    </button>
+                </md-grid-tile>
+            </md-grid-list>
+        </div>
+    </md-card>
+    <ngx-datatable style="margin-top:7px;margin-bottom:7px;" class="material" [rows]="peek_recordItems" [columnMode]="'force'"
+        [headerHeight]="50" [footerHeight]="50" [rowHeight]="50">
+        <ngx-datatable-column prop="name" name="Name"></ngx-datatable-column>
+        <ngx-datatable-column prop="dob" name="Date Of Birth"></ngx-datatable-column>
+        <ngx-datatable-column prop="sex" name="Sex">
+            <ng-template ngx-datatable-cell-template let-row="row" let-value="value">
+                {{value == true ? "Male" : "Female"}}
+            </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column prop="bio" name="Bio"></ngx-datatable-column>
+    </ngx-datatable>
