@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { EmployeeComponent } from '../Components/Record/employee.component';
-import { UploadExcelComponent } from '../Components/Excel/uploadExcel.component';
-import { ViewEmployeeComponent } from '../Components/Record/view-employee.component';
-import { ConvertFileComponent } from '../Components/Convert/convert-file.component';
+import { EmployeeComponent } from '../Modules/Record/employee.component';
+import { UploadExcelComponent } from '../Modules/Excel/uploadExcel.component';
+import { ViewEmployeeComponent } from '../Modules/Record/view-employee.component';
+import { ConvertFileComponent } from '../Modules/Convert/convert-file.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/view', pathMatch: 'full' },

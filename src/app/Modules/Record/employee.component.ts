@@ -11,7 +11,7 @@ import { EmployeeService } from '../../Services/employee.service';
 
 @Component({
   selector: 'record',
-  templateUrl: './../../Views/Record/employee.component.html',
+  templateUrl: './employee.component.html',
   styles: [`
     .record-card{
 		width:80%;
@@ -21,7 +21,6 @@ import { EmployeeService } from '../../Services/employee.service';
 })
 export class EmployeeComponent implements OnInit, OnDestroy {
 
-  @ViewChild('recordTable') recordTable: any;
   @ViewChild('selectFile') selectFile: any;
 
   private querySubscribe: any;

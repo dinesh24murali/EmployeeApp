@@ -29,7 +29,10 @@
 
                 <md-grid-tile [colspan]="2">
                     <div style="float:left;">
-                        <md-slide-toggle (change)="sex = sex == 'M' ? 'F' : 'M'">{{sex == "M" ? "Male" : "Female"}}</md-slide-toggle>
+                        <md-radio-group [(ngModel)]="sex">
+                            <md-radio-button value="M">Male</md-radio-button>
+                            <md-radio-button value="F">Female</md-radio-button>
+                        </md-radio-group>
                     </div>
                 </md-grid-tile>
 

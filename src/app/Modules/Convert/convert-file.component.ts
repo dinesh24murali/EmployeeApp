@@ -68,7 +68,7 @@ export class ConvertFileComponent implements OnInit {
     */
     afterConvertFile() {
         this.excelData = [];
-        this.converting = this.convertDisabled = false;
+        this.converting = false;
         this.fileName = { name: "" };
         this.snackBar.open('File Converted Successfully', 'Ok', {
             duration: 3000

@@ -5,14 +5,13 @@ import { FormControl, Validators } from '@angular/forms';
 import { DatatableComponent } from '@swimlane/ngx-datatable';
 
 import { DialogTempComponent } from '../Shared/dialog-temp.component';
-import { ExceptionDialog } from '../Shared/exception-dialog.component';
 import { Employee } from '../../Models/Record/Record';
 import { EmployeeService } from '../../Services/employee.service';
 
 
 @Component({
     selector: 'view-employee',
-    templateUrl: './../../Views/Record/view-employee.component.html',
+    templateUrl: './view-employee.component.html',
     styles: [`
   .viewRecord{
     padding: 20px 20px 20px 20px;

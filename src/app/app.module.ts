@@ -4,23 +4,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { CdkTableModule } from '@angular/cdk';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { MaterialModule, MdNativeDateModule, MdInputModule, MdSelectModule } from '@angular/material';
 
 import { AppRoutingModule } from './Route/app-routing.module';
-import { EmployeeComponent } from './Components/Record/employee.component';
-import { ViewEmployeeComponent } from './Components/Record/view-employee.component';
-import { ConvertFileComponent } from './Components/Convert/convert-file.component';
-import { UploadExcelComponent } from './Components/Excel/uploadExcel.component';
-import { SampleComponent } from './Components/Record/sample.component';
-import { AppComponent } from './Components/app.component';
+import { EmployeeComponent } from './Modules/Record/employee.component';
+import { ViewEmployeeComponent } from './Modules/Record/view-employee.component';
+import { ConvertFileComponent } from './Modules/Convert/convert-file.component';
+import { UploadExcelComponent } from './Modules/Excel/uploadExcel.component';
+import { AppComponent } from './Modules/app.component';
 
-import { DialogTempComponent } from './Components/Shared/dialog-temp.component';
-import { AddNewProductDialog } from './Components/Shared/addNewProduct-temp.component';
-import { ExceptionDialog } from './Components/Shared/exception-dialog.component';
-// import { PeekRecord } from './Components/Shared/peek-record.component';
+import { DialogTempComponent } from './Modules/Shared/dialog-temp.component';
 
 import { EmployeeService } from './Services/employee.service';
 
@@ -37,7 +32,6 @@ import 'hammerjs/hammer';
         MdNativeDateModule,
         AppRoutingModule,
         MdInputModule,
-        CdkTableModule,
         MdSelectModule,
         NgxDatatableModule
     ],
@@ -45,16 +39,12 @@ import 'hammerjs/hammer';
         AppComponent,
         EmployeeComponent,
         ViewEmployeeComponent,
-        AddNewProductDialog,
         DialogTempComponent,
         UploadExcelComponent,
-        SampleComponent,
-        ConvertFileComponent,
-        ExceptionDialog
-        // PeekRecord
+        ConvertFileComponent
     ],
     bootstrap: [AppComponent],
-    entryComponents: [AddNewProductDialog, DialogTempComponent, ExceptionDialog],
+    entryComponents: [ DialogTempComponent],
     providers: [EmployeeService]
 })
 export class AppModule { }

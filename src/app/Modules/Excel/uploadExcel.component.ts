@@ -24,7 +24,7 @@ import { DialogTempComponent } from '../Shared/dialog-temp.component';
     `]
 })
 export class UploadExcelComponent implements OnInit {
-    
+
     // Object used to access the hidden file input box
     @ViewChild('selectFile') selectFile: any;
 
@@ -70,7 +70,7 @@ export class UploadExcelComponent implements OnInit {
     */
     afterFileUpload() {
         this.excelData = [];
-        this.uploading = this.uploadDisabled = false;
+        this.uploading = false;
         this.fileName = { name: "" };
         this.snackBar.open('File Uploaded Successfully', 'Ok', {
             duration: 3000
@@ -113,8 +113,10 @@ export class UploadExcelComponent implements OnInit {
             message = "File Empty";
         }
 
-        if (!valiedExcel)
+        if (!valiedExcel) {
+            this.selectFile.nativeElement.value = '';
             this.openDialog(message, false, false);
+        }
         return valiedExcel;
     }
 
@@ -180,7 +182,7 @@ export class UploadExcelComponent implements OnInit {
                 this.employeeService.uploadEmployee(this.excelData)
                     .then((res) => this.afterFileUpload());
             }
-            this.uploading = this.uploadDisabled = false;
+            this.uploading = false;
             this.fileName = { name: "" };
         });
     }
